@@ -1,13 +1,11 @@
 package com.estherobei.jounmovie.ui.movieDetails
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.estherobei.jounmovie.R
+import androidx.fragment.app.Fragment
 import com.estherobei.jounmovie.databinding.FragmentMovieDetailsBinding
-import com.estherobei.jounmovie.databinding.FragmentMoviesListBinding
 
 class MovieDetails : Fragment() {
 
