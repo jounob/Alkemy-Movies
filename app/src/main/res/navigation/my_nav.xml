@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/moviesList"
-        android:name="com.estherobei.jounmovie.MoviesList"
+        android:name="com.estherobei.jounmovie.ui.movies.MoviesList"
         android:label="fragment_movies_list"
         tools:layout="@layout/fragment_movies_list" />
     <fragment
         android:id="@+id/movieDetails"
-        android:name="com.estherobei.jounmovie.MovieDetails"
+        android:name="com.estherobei.jounmovie.ui.movieDetails.MovieDetails"
         android:label="fragment_movie_details"
         tools:layout="@layout/fragment_movie_details" />
 </navigation>
