@@ -4,7 +4,5 @@ import javax.inject.Inject
 
 class Repository @Inject constructor(private val dataSource: DataSource
 ){
-    suspend fun movies(){
-        dataSource.getPopularMovies()
-    }
+    suspend fun movies() = dataSource.getPopularMovies()
 }
