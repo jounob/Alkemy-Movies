@@ -10,6 +10,5 @@ interface Service {
     @GET("movie/popular")
     suspend fun popularMovies(
         @Query("api_key") api_key: String,
-        @Query("page") page: Int = 1
     ): Response<ApiResponse<List<MovieResult>>>
 }

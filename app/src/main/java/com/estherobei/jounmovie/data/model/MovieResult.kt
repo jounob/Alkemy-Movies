@@ -2,7 +2,6 @@ package com.estherobei.jounmovie.data.model
 
 import com.google.gson.annotations.SerializedName
 
-
 data class MovieResult(
     val adult: Boolean,
     @SerializedName("backdrop_path")

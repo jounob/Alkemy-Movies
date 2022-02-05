@@ -7,7 +7,6 @@ import com.estherobei.jounmovie.databinding.ItemMovieBinding
 import com.estherobei.jounmovie.util.ApiConfiguration.IMAGE_URL
 import com.squareup.picasso.Picasso
 
-
 class MoviesListViewHolder(
     view: View,
     clickListener: MoviesList,
@@ -20,7 +19,8 @@ class MoviesListViewHolder(
         Picasso.get().load(IMAGE_URL + movie.posterPath).into(imMovieImage)
         txtNameMovie.text = movie.originalTitle
     }
-
+//Al inicio del viewModel se escucha el click de un view del recyclerview pasa su position
+//al  onItemClick
     init {
        itemView.setOnClickListener {
             clickListener.onItemClick(adapterPosition, movies)

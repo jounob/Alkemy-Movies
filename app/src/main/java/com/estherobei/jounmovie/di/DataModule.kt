@@ -6,7 +6,6 @@ import com.estherobei.jounmovie.util.ApiConfiguration.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -15,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 @Module
 @InstallIn(SingletonComponent::class)
-class DataModule {
+class DataModule {  //Clase que tiene los modulos que necesita Hilt para injecta class dependencia
 
     @ApiMovie
     @Provides
@@ -39,7 +38,4 @@ class DataModule {
     fun provideMovieDataSource(service: Service): DataSource{
         return DataSource(service)
     }
-
-
-
 }

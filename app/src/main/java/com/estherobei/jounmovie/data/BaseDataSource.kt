@@ -19,7 +19,7 @@ abstract class BaseDataSource {
         }
     }
 }
-
+//clase que permite encapsular las respuesta del repository segun su estado loading, success y error
 data class Resource<out T>(var status: Status, val data: T?, val message: String?) : Serializable {
 
     enum class Status {

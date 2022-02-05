@@ -19,10 +19,10 @@ class MoviesListViewModel @Inject constructor(private val repository: Repository
     val moviesResult: LiveData<Resource<List<MovieResult>>> = _movieResult
 
     init {
-        getMoviesResult(1)
+        getMoviesResult()
     }
-
-    fun getMoviesResult(page:Int ) {
+//Function que trae los resultado de movie y actualisa el live data
+    fun getMoviesResult() {
         viewModelScope.launch(Dispatchers.Main) {
             val result = withContext(Dispatchers.IO) {
                 repository.movies()

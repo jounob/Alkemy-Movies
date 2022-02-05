@@ -22,7 +22,8 @@ class MovieDetails : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentMovieDetailsBinding.inflate(inflater, container, false)
 
-
+//Recibe los datos del movie cliqueado anteriomente atraves de los safe args y
+//tambien inicializa los views
         binding.apply {
             txtDescriptionMovie.text = args.overview
             txtQualification.text = args.originalLanguage

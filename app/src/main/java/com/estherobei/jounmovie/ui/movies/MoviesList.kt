@@ -7,9 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
-import com.estherobei.jounmovie.R
 import com.estherobei.jounmovie.data.Resource
 import com.estherobei.jounmovie.data.model.MovieResult
 import com.estherobei.jounmovie.databinding.FragmentMoviesListBinding
@@ -27,9 +25,9 @@ class MoviesList : Fragment(), ClickListener {
         savedInstanceState: Bundle?,
     ): View {
         binding = FragmentMoviesListBinding.inflate(inflater, container, false)
-
-
+//Observando el live data del viewModel
         viewModel.moviesResult.observe(viewLifecycleOwner) {
+            //Manejo de estado
             when (it.status) {
                 Resource.Status.LOADING -> {
                     Toast.makeText(this.context, "Load", Toast.LENGTH_LONG).show()
@@ -51,7 +49,7 @@ class MoviesList : Fragment(), ClickListener {
 
         return binding.root
     }
-
+//Funcion que envia y los datos y navega hacia MovieDetails
     override fun onItemClick(position: Int, movies: List<MovieResult>) {
         val action = MoviesListDirections.goToDetails(
             movies[position].backdropPath,

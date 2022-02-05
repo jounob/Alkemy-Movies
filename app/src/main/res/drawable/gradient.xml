@@ -9,7 +9,6 @@
                 android:endColor="#E9F5DB"
                 android:startColor="#87986A"
                 android:type="linear" />
-
         </shape>
     </item>
 </selector>

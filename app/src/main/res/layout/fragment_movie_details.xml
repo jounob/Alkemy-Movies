@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/elva"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/green_light"
@@ -24,7 +25,7 @@
         android:id="@+id/cvMovieImage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="13dp"
+        android:layout_marginEnd="10dp"
         app:cardCornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,26 +44,26 @@
     <TextView
         android:id="@+id/txtNameMovieDetails"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="232dp"
-        android:background="@color/green_light"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="240dp"
+        android:background="@drawable/gradient"
         android:padding="4dp"
-        android:text="Joun Name Movie"
+        android:paddingStart="10dp"
+        android:textAlignment="center"
         android:textColor="@color/green_dark"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imBackImage"
         app:layout_constraintEnd_toStartOf="@+id/cvMovieImage"
-        app:layout_constraintHorizontal_bias="0.058"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Joun Movie" />
 
     <TextView
         android:id="@+id/txtDescriptionMovie"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="5dp"
         android:paddingLeft="4dp"
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
@@ -72,8 +73,8 @@
         app:layout_constraintEnd_toStartOf="@+id/cvMovieImage"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imBackImage"
-        app:layout_constraintVertical_bias="0.01999998" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNameMovieDetails"
+        app:layout_constraintVertical_bias="0.050000012" />
 
     <TextView
         android:id="@+id/txtQualification"
