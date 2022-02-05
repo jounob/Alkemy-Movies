@@ -7,36 +7,60 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
+import com.estherobei.jounmovie.R
 import com.estherobei.jounmovie.data.Resource
+import com.estherobei.jounmovie.data.model.MovieResult
 import com.estherobei.jounmovie.databinding.FragmentMoviesListBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MoviesList : Fragment() {
+class MoviesList : Fragment(), ClickListener {
 
     private lateinit var binding: FragmentMoviesListBinding
+    private lateinit var adapter: MoviesListAdapter
     private val viewModel: MoviesListViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        // Inflate the layout for this fragment
         binding = FragmentMoviesListBinding.inflate(inflater, container, false)
+
 
         viewModel.moviesResult.observe(viewLifecycleOwner) {
             when (it.status) {
                 Resource.Status.LOADING -> {
-                    Toast.makeText(this.context, "Load", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this.context, "Load", Toast.LENGTH_LONG).show()
                 }
+
                 Resource.Status.SUCCESS -> {
-                    Toast.makeText(this.context, "Success", Toast.LENGTH_SHORT).show()
+
+                    adapter = MoviesListAdapter(it.data!!, this)
+                    binding.rvMoviesList.adapter = adapter
+
+                    Toast.makeText(this.context, "Success", Toast.LENGTH_LONG).show()
                 }
+
                 Resource.Status.ERROR -> {
-                    Toast.makeText(this.context, "Error", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this.context, "Error", Toast.LENGTH_LONG).show()
                 }
             }
         }
+
         return binding.root
+    }
+
+    override fun onItemClick(position: Int, movies: List<MovieResult>) {
+        val action = MoviesListDirections.goToDetails(
+            movies[position].backdropPath,
+            movies[position].originalTitle,
+            movies[position].originalLanguage,
+            movies[position].overview,
+            movies[position].posterPath,
+            movies[position].voteAverage.toString(),
+        )
+       findNavController().navigate(action)
     }
 }
